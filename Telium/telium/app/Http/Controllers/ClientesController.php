@@ -47,6 +47,7 @@ class ClientesController extends Controller
 
     public function delete( $id ){
         $cliente = ModelsCliente::findOrFail ( $id );
+        $cliente->endereco->delete();
         $cliente->delete();
         return Redirect::to('/clientes');
     }
